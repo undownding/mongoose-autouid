@@ -1,0 +1,23 @@
+{
+  "name": "mongoose-autouid",
+  "version": "0.0.1",
+  "description": "Add an auto inc field named uid for schema",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:undownding/mongoose-autouid.git"
+  },
+  "homepage": "https://github.com/undownding/mongoose-autouid",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^6.0.13"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.2"
+  }
+}
