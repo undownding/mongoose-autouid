@@ -16,11 +16,10 @@ export function AutoIncUid(schema: Schema): void {
 }
 
 async function getNextSeq(db: Connection, name: string): Promise<number> {
-  return db.collection('counters').findAndModify(
-    {_id: name},
-    {_id: -1},
-    {$inc: {seq: 1}},
-    {new: true, upsert: true}
-  ).then((doc: any) => doc.seq)
+  return db.collection('counters').findOneAndUpdate(
+      { _id: name },
+      { $inc: { seq: 1 } },
+      {upsert: true}
+  ).then(() => db.collection('counters').findOne({_id: name})).then((doc: any) => doc.seq)
 }
 

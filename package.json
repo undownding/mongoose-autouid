@@ -1,6 +1,6 @@
 {
   "name": "mongoose-autouid",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Add an auto inc field named uid for schema",
   "main": "index.js",
   "scripts": {
