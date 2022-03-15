@@ -5,11 +5,13 @@ export function AutoIncUid(schema: Schema): void {
     uid: {type: Number, unique: true},
   })
 
-  schema.pre('save', async (doc: any, next: any): Promise<void> => {
+  schema.pre('save', async (doc: any): Promise<void> => {
     if (doc.isNew) {
-      doc.uid = await getNextSeq(doc.db, doc.collection.name)
+      return getNextSeq(doc.db, doc.collection.name)
+          .then((seq) => {
+            doc.uid = seq
+          })
     }
-    next()
   })
 }
 
